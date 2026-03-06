@@ -19,8 +19,8 @@
 }
 
 .tecnologia-conteudo {
-  padding-top: 180px;
-  padding-bottom: 180px;
+  padding-top: 160px;
+  padding-bottom: 160px;
 }
 
 .tecnologia-conteudo > span {
@@ -36,7 +36,7 @@
   margin-bottom: 20px;
 }
 
-.tecnologia-conteudo a {
+.tecnologia a {
   margin-bottom: 80px;
 }
 
