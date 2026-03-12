@@ -6,17 +6,20 @@
     <title>Nebula Cosmic | BikCraft</title>
     <meta name="description" content="Nebula Cosmic" />
 
-    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="shortcut icon" href="../favicon.svg " type="image/x-icon" />
+    <link rel="preload" href="./css/style.min.css" as="style" />
+    <link rel="stylesheet" href="../css/style.min.css" />
+
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&family=Poppins:wght@500;600&family=Roboto:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <script>
-      document.documentElement.classList.add("js");
-    </script>
   </head>
   <body id="bicicleta">
     <header class="header-bg">
@@ -40,7 +43,7 @@
 
     <main class="titulo-bg">
       <div>
-        <div class="titulo container">
+        <div class="titulo container fadeInLeft" data-anime="200">
           <p class="font-2-xl cor-5">R$ 3999</p>
           <h1 class="font-1-xxl cor-0">
             Nebula Cosmic<span class="cor-p1">.</span>
@@ -49,7 +52,7 @@
       </div>
 
       <div class="bicicleta container">
-        <div class="bicicleta-imagens">
+        <div class="bicicleta-imagens fadeInUp" data-anime="400">
           <img
             src="../img/bicicleta/nimbus3.jpg"
             width="1120"
@@ -70,7 +73,7 @@
             alt="Bicicleta Preta"
           />
         </div>
-        <div class="bicicleta-conteudo">
+        <div class="bicicleta-conteudo fadeInRight" data-anime="400">
           <p class="font-2-l cor-5">
             A Nebula Cosmic é uma BikCraft criada para quem valoriza tecnologia
             e estilo. Garantem uma experiência de condução suave e confiável.
@@ -279,6 +282,7 @@
         </p>
       </div>
     </footer>
+    <script src="../js/plugins/simple-anime.js"></script>
     <script src="../js/script.js"></script>
   </body>
 </html>
