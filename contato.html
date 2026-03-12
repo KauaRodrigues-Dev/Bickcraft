@@ -107,7 +107,13 @@
           <form class="form" action="./contato.html">
             <div>
               <label for="nome">Nome</label>
-              <input type="text" id="nome" name="nome" placeholder="Seu Nome" />
+              <input
+                type="text"
+                id="nome"
+                name="nome"
+                placeholder="Seu Nome"
+                required
+              />
             </div>
             <div>
               <label for="telefone">Telefone</label>
@@ -125,17 +131,17 @@
                 id="email"
                 name="email"
                 placeholder="contato@email.com"
+                required
               />
             </div>
             <div class="col-2">
-              <label for="mensagem">Mensagem</label>
+              <label for="mensagem">Mensagem:</label>
               <textarea
                 rows="5"
                 id="mensagem"
                 name="mensagem"
-                placeholder="O que você precisa?"
-              >
-              </textarea>
+                required
+              ></textarea>
             </div>
             <button class="botao col-2">Enviar Mensagem</button>
           </form>
@@ -260,7 +266,12 @@
       </div>
     </footer>
 
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
     <script src="./js/plugins/simple-anime.js"></script>
     <script src="./js/script.js"></script>
+    <script src="./js/formulario.js"></script>
   </body>
 </html>

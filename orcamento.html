@@ -215,7 +215,7 @@
           <h2 class="font-1-xs cor-9 col-2">Dados Pessoais</h2>
           <div>
             <label for="nome">Nome</label>
-            <input type="text" id="nome" name="nome" />
+            <input type="text" id="nome" name="nome" required />
           </div>
           <div>
             <label for="sobrenome">Sobrenome</label>
@@ -228,20 +228,29 @@
               id="cpf"
               name="cpf"
               placeholder="000.000.000-00"
+              required
             />
           </div>
           <div class="col-2">
             <label for="email">Email</label>
-            <input type="email" id="email" name="email" />
+            <input type="email" id="email" name="email" required />
           </div>
           <h2 class="font-1-xs cor-9 col-2">entrega</h2>
           <div>
-            <label for="cep">CEP</label>
-            <input type="text" id="cep" name="cep" />
+            <label>CEP:</label>
+            <input
+              type="text"
+              id="cep"
+              data-mask="cep"
+              placeholder="00000-000"
+              maxlength="9"
+              onblur="buscarEndereco()"
+              required
+            />
           </div>
           <div>
             <label for="numero">Número</label>
-            <input type="text" id="numero" name="numero" />
+            <input type="text" id="numero" name="numero" required />
           </div>
           <div>
             <label for="logradouro">Logradouro</label>
@@ -250,19 +259,20 @@
               id="logradouro"
               name="logradouro"
               placeholder="Rua, avenida..."
+              required
             />
           </div>
           <div>
             <label for="bairro">Bairro</label>
-            <input type="text" id="bairro" name="bairro" />
+            <input type="text" id="bairro" name="bairro" required />
           </div>
           <div>
             <label for="cidade">Cidade</label>
-            <input type="text" id="cidade" name="cidade" />
+            <input type="text" id="cidade" name="cidade" required />
           </div>
           <div>
             <label for="estado">Estado</label>
-            <input type="text" id="estado" name="estado" />
+            <input type="text" id="estado" name="estado" required />
           </div>
           <button class="botao col-2">Solicitar Orçamento</button>
         </div>
@@ -325,7 +335,12 @@
         </p>
       </div>
     </footer>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
     <script src="./js/plugins/simple-anime.js"></script>
     <script src="./js/script.js"></script>
+    <script src="./js/formulario.js"></script>
   </body>
 </html>

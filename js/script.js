@@ -81,3 +81,75 @@ if (window.SimpleAnime) {
 }
 
 //? ////////////////////////////////////////////////////////////////////////////////////////////
+
+//todo Máscara para CEP
+function aplicarMascaraCEP() {
+  const campoCEP = document.getElementById("cep");
+
+  if (campoCEP) {
+    campoCEP.addEventListener("input", (e) => {
+      let value = e.target.value.replace(/\D/g, "");
+      value = value.replace(/(\d{5})(\d)/, "$1-$2");
+      e.target.value = value;
+    });
+  }
+}
+
+// Aplica a máscara quando a página carrega
+document.addEventListener("DOMContentLoaded", aplicarMascaraCEP);
+
+//? ////////////////////////////////////////////////////////////////////////////////////////////
+
+//todo API para buscar CEP e completar endereço
+
+// Função para buscar endereço pelo CEP usando ViaCEP
+function buscarEndereco() {
+  const cep = document.getElementById("cep")?.value?.replace(/\D/g, "");
+
+  if (!cep || cep.length !== 8) {
+    return;
+  }
+
+  // Mostra feedback visual
+  const logradouro = document.getElementById("logradouro");
+  const bairro = document.getElementById("bairro");
+  const cidade = document.getElementById("cidade");
+  const estado = document.getElementById("estado");
+
+  logradouro.value = "Buscando...";
+  bairro.value = "Buscando...";
+  cidade.value = "Buscando...";
+  estado.value = "Buscando...";
+
+  fetch(`https://viacep.com.br/ws/${cep}/json/`)
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.erro) {
+        alert("CEP não encontrado!");
+        limparCamposEndereco();
+        return;
+      }
+
+      // Preenche os campos com os dados retornados
+      logradouro.value = data.logradouro || "";
+      bairro.value = data.bairro || "";
+      cidade.value = data.localidade || "";
+      estado.value = data.uf || "";
+
+      // Foca no campo número para o usuário continuar preenchendo
+      document.getElementById("numero")?.focus();
+    })
+    .catch((error) => {
+      console.error("Erro ao buscar CEP:", error);
+      alert("Erro ao buscar CEP. Tente novamente.");
+      limparCamposEndereco();
+    });
+}
+
+// Função auxiliar para limpar os campos de endereço
+function limparCamposEndereco() {
+  document.getElementById("logradouro").value = "";
+  document.getElementById("bairro").value = "";
+  document.getElementById("cidade").value = "";
+  document.getElementById("estado").value = "";
+}
